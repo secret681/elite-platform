@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة النخبة الاستثمارية | Global Elite Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.5);
+            --accent: #38bdf8;
+            --success: #10b981;
+            --bg-deep: #030712;
+            --card-bg: rgba(17, 24, 39, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 40%);
+        }
+
+        header {
+            background: rgba(3, 7, 18, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #818cf8, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .balance-badge {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px 15px 50px 15px;
+        }
+        .hero-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 20px;
+            padding: 25px 20px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .hero-card h1 {
+            font-size: 22px;
+            font-weight: 900;
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+
+        .hero-card p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .trust-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--success);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 17px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .steps-grid {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .step-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .step-num {
+            background: var(--primary);
+            color: white;
+            width: 20px; height: 20px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%;
+            font-size: 11px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .wallet-box {
+            background: rgba(3, 7, 18, 0.6);
+            border: 1px dashed var(--accent);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            word-break: break-all;
+            text-align: center;
+            color: var(--accent);
+            font-family: monospace;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            background: rgba(3, 7, 18, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: white;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary), #4f46e5);
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Cairo', sans-serif;
+            box-shadow: 0 4px 15px var(--primary-glow);
+            transition: all 0.2s ease;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, var(--success), #059669);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+        .packages-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .package-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 15px 12px;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .package-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(255,255,255,0.01) 100%);
+        }
+
+        .package-card h4 {
+            margin: 0 0 8px 0;
+            font-size: 15px;
+            color: #fff;
+        }
+
+        .package-info {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 4px 0;
+        }
+
+        .package-info span {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .package-card button {
+            margin-top: 10px;
+            padding: 8px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h3>🌟 Global Elite Platform</h3>
+        <div class="balance-badge">الرصيد: <span id="balance">0.00</span> $</div>
+    </header>
+
+    <div class="container">
+        
+        <div class="hero-card">
+            <div class="trust-badge">🔒 نظام آمن وموثوق 1,000,000%</div>
+            <h1>مرحباً بك في منصة النخبة الرقمية</h1>
+            <p>مشروعك الحقيقي للعمل والإنتاج المشترك. نبني معاً بيئة استثمارية قانونية، شفافة، وذات عوائد حقيقية مضمونة ومبنية على الجهد المشترك.</p>
+        </div>
+
+        <div class="card">
+            <h3>📖 كيف تعمل المنصة وتربح معنا؟</h3>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div><strong>الإيداع الآمن:</strong> قم بشحن رصيدك عبر الشبكة الرقمية المعتمدة.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div><strong>اختر خطتك:</strong> انضم للباقة المناسبة لجهدك ورأس مالك التشغيلي.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div><strong>احصد الأرباح:</strong> يحسب النظام عوائدك يومياً بكل شفافية لتسحبها متى شئت.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>💳 شحن الرصيد الفوري</h3>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">أرسل المبلغ إلى عنوان المحفظة الرسمية أدناه:</p>
+            <div class="wallet-box">0xEliteSecurePlatformOfficialWallet7788</div>
+            <input type="number" id="depositAmount" placeholder="أدخل المبلغ المراد إيداعه ($)">
+            <button onclick="deposit()">تأكيد وإضافة الرصيد</button>
+        </div>
+
+        <div class="card">
+            <h3>⚡ الخطط الاستثمارية المتاحة</h3>
+            <div class="packages-container">
+                <div class="package-card">
+                    <div>
+                        <h4>باقة المبتدئين</h4>
+                        <div class="package-info">التكلفة: <span>3.50 $</span></div>
+                        <div class="package-info">الربح: <span>1.57 $</span></div>
+                    </div>
+                    <button onclick="buyPackage(3.50, 1.57)">اشتراك</button>
+                </div>
+                <div class="package-card featured">
+                    <div>
+                        <h4>باقة النخبة</h4>
+                        <div class="package-info">التكلفة: <span>10.00 $</span></div>
+                        <div class="package-info">الربح: <span>4.50 $</span></div>
+                    </div>
+                    <button onclick="buyPackage(10.00, 4.50)">اشتراك</button>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <h3>💸 سحب الأرباح الآمن</h3>
+            <input type="text" id="walletAddress" placeholder="عنوان محفظتك لاستلام الأرباح (USDT)">
+            <input type="number" id="withdrawAmount" placeholder="المبلغ المراد سحبه ($)">
+            <button class="btn-success" onclick="withdraw()">إرسال طلب السحب الفوري</button>
+        </div>
+
+    </div>
+
+    <script>
+        let currentBalance = 0;
+
+        function updateUI() {
+            document.getElementById('balance').innerText = currentBalance.toFixed(2);
+        }
+
+        function deposit() {
+            let amount = parseFloat(document.getElementById('depositAmount').value);
+            if (isNaN(amount) || amount <= 0) {
+                alert("يرجى إدخال مبلغ إيداع صحيح.");
+                return;
+            }
+            currentBalance += amount;
+            updateUI();
+            document.getElementById('depositAmount').value = '';
+            alert("✨ تمت عملية الإيداع بنجاح وأضيفت الأموال إلى حسابك!");
+        }
+
+        function buyPackage(price, profit) {
+            if (currentBalance < price) {
+                alert("⚠️ رصيدك الحالي غير كافٍ للاشتراك في هذه الباقة.");
+                return;
+            }
+            currentBalance -= price;
+            updateUI();
+            alert(`🎉 مبروك! تم تفعيل الباقة بنجاح، وستبدأ بحصد عوائد بقيمة ${profit}$`);
+        }
+
+        function withdraw() {
+            let amount = parseFloat(document.getElementById('withdrawAmount').value);
+            let address = document.getElementById('walletAddress').value;
+
+            if (!address) {
+                alert("⚠️ يرجى إدخال عنوان المحفظة بدقة.");
+                return;
+            }
+            if (isNaN(amount) || amount <= 0) {
+                alert("⚠️ يرجى إدخال مبلغ سحب صحيح.");
+                return;
+            }
+            if (currentBalance < amount) {
+                alert("⚠️ عذراً، رصيدك المتاح لا يكفي لإتمام السحب.");
+                return;
+            }
+
+            currentBalance -= amount;
+            updateUI();
+            document.getElementById('withdrawAmount').value = '';
+            document.getElementById('walletAddress').value = '';
+            alert("🚀 تم تسجيل طلب السحب بنجاح وسيتم تحويل الأموال إلى محفظتك قريباً.");
+        }
+    </script>
+</body>
+</html>
